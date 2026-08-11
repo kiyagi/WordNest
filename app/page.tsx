@@ -20,7 +20,7 @@ const kanaMap:Record<string,string>={あ:"a",い:"i",う:"u",え:"e",お:"o",か
 const toRomaji=(reading?:string)=>reading?[...reading].map(k=>kanaMap[k]??k).join(""):"";
 const richer:Record<string,string>={abandon:"放弃；抛弃；离弃；中止",absorb:"吸收；吸引；理解；使全神贯注",abundant:"丰富的；大量的；充裕的",accommodate:"容纳；适应；为…提供住宿；调节",advocate:"提倡；拥护；主张；拥护者",ambiguous:"模棱两可的；含糊不清的；多义的",anticipate:"预期；期待；预见；先于…行动",arbitrary:"任意的；武断的；专横的",beneficial:"有益的；有利的；有帮助的",coherent:"连贯的；一致的；条理清楚的",compel:"强迫；迫使；使不得不",comprehensive:"全面的；综合的；广泛的",consecutive:"连续的；连贯的；不间断的",controversial:"有争议的；引起争论的",crucial:"关键的；至关重要的；决定性的",deduce:"推断；演绎；推论",diminish:"减少；缩小；贬低；削弱",diverse:"多样的；不同的；多元的",elaborate:"精心制作的；复杂的；详尽阐述",emerge:"出现；显现；浮现；暴露"};
 const definition=(w:Word)=>richer[w.term]||w.meaning;
-const normalizeAnswer=(value:string)=>value.normalize("NFKC").toLowerCase().replace(/\s+/g,"").replace(/[。．.!！]/g,"");
+const normalizeAnswer=(value:string)=>value.normalize("NFKC").toLowerCase().replace(/\s+/g,"").replace(/[。．.!！]/g,"").replace(/[的地得而]/g,"");
 const isAnswerCorrect=(w:Word,input:string,direction:"meaning"|"term")=>{const answer=normalizeAnswer(input);if(!answer)return false;if(direction==="term")return w.term.split(/[；;、,/／]/).map(normalizeAnswer).some(term=>term===answer);const variants=definition(w).replace(/\b(?:n|v|adj|adv|vt|vi|prep|conj|pron)\.?\s*/gi,"").split(/[；;、，,／/]/).map(normalizeAnswer).filter(Boolean);return variants.some(item=>item===answer||(answer.length>=2&&(item.includes(answer)||answer.includes(item))))};
 const GROUP_SIZE = 20;
 
