@@ -15,7 +15,7 @@ button:not(:disabled){transition:transform 150ms ease,box-shadow 150ms ease,back
 button:not(:disabled):active{transform:scale(.97)}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid color-mix(in srgb,var(--wn-button) 52%,#fff);outline-offset:3px}
 @media (hover:hover) and (pointer:fine){button:not(:disabled):hover{transform:translateY(-1px);filter:brightness(1.035)}.solid:not(:disabled):hover{box-shadow:0 9px 20px color-mix(in srgb,var(--wn-button) 38%,transparent)}.soft:not(:disabled):hover,.switch:not(:disabled):hover,.save:not(:disabled):hover,.back:not(:disabled):hover{box-shadow:0 5px 13px #183b3615}}
-.progress i{transition:width 360ms cubic-bezier(.2,.8,.2,1);will-change:width}
+.progress i{width:100%!important;transform:scaleX(var(--progress-scale,0));transform-origin:left center;transition:transform 360ms cubic-bezier(.2,.8,.2,1);will-change:transform}
 .study .card{transform-origin:50% 54%;will-change:transform,opacity}
 .word-card-enter{animation:word-card-enter 270ms cubic-bezier(.2,.8,.2,1) both}
 @keyframes word-card-enter{from{opacity:.01;transform:perspective(850px) rotateY(-3deg) translate3d(0,9px,0)}to{opacity:1;transform:perspective(850px) rotateY(0) translate3d(0,0,0)}}
@@ -29,7 +29,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid 
 .result,.saved-report{animation:result-enter 280ms cubic-bezier(.2,.8,.2,1) both}
 @keyframes result-enter{from{opacity:0;transform:translate3d(0,10px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
 @media(max-width:650px){.word-card-enter{animation-name:word-card-enter-mobile}@keyframes word-card-enter-mobile{from{opacity:.01;transform:translate3d(0,7px,0)}to{opacity:1;transform:translate3d(0,0,0)}}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.study .card,.questions label,button:not(:disabled){transform:none!important}.progress i{will-change:auto}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.study .card,.questions label,button:not(:disabled){transform:none!important}.progress i{will-change:auto;transform:scaleX(var(--progress-scale,0))!important}}
 
 /* 覆盖旧样式中的宽泛过渡，保证交互动画只列出必要属性。 */
 .speaker{transition:transform 200ms ease,background-color 200ms ease}

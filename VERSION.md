@@ -1,6 +1,7 @@
-# WordNest V.1.4.1
+# WordNest V.1.4.2
 
 V.1.4.1: Added light, compositor-friendly learning animations, button touch feedback, visible keyboard focus, and a full `prefers-reduced-motion` fallback.
+V.1.4.2: Changed progress animation to compositor-only `transform: scaleX`, avoiding layout-affecting width transitions.
 
 版本规则：`v.整体版本.视觉版本.更新版本`。
 
