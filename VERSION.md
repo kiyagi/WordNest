@@ -1,4 +1,6 @@
-# WordNest V.1.3.4
+# WordNest V.1.4.1
+
+V.1.4.1: Added light, compositor-friendly learning animations, button touch feedback, visible keyboard focus, and a full `prefers-reduced-motion` fallback.
 
 版本规则：`v.整体版本.视觉版本.更新版本`。
 
